@@ -1,9 +1,4 @@
-// using Administrator from '../db/schema';
-
-
 service adminService {
-
-    // entity administrator as projection on Administrator.Users;
 
     entity administrators {
         key username        : String;
@@ -13,10 +8,16 @@ service adminService {
             email           : String;
             phone           : String;
             adminType       : String;
-            account         : String;
+            departments     : String; //account   this is array of object
             status          : String
 
     }
 
+    entity userTypes {
+        key name : String;
+    }
 
+    entity deptName {
+        key name : String;
+    }
 }

@@ -1,0 +1,220 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:upload="sap.m.upload"
+    xmlns:f='sap.ui.layout.form'
+    xmlns:u="sap.ui.unified"
+    xmlns:up='sap.m.upload'
+    xmlns:mvc="sap.ui.core.mvc"
+>
+    <Dialog
+        title="Add New Administrator"
+        contentWidth="45%"
+        contentHeight="45%"
+        class="sapUiTinyMargin"
+        xmlns:upload="sap.m.upload"
+    >
+        <VBox class="sapUiMediumMargin">
+            <VBox
+                alignItems="Center"
+                class="sapUiTinyMarginTop"
+            >
+                <Avatar />
+                <!-- <u:FileUploader
+                    id="fileUploader"
+                    name="fileUploader"
+                    uploadUrl="your_upload_url"
+                    uploadComplete="onUploadComplete"
+                    change="onFileSelectionChange"
+                    class="hideUploader"
+                /> -->
+            </VBox>
+
+            <FlexBox
+                justifyContent="SpaceBetween"
+                class="sapUiTinyMarginTop"
+            >
+                <VBox>
+                    <Label
+                        required="true"
+                        text="User Name"
+                    />
+                    <Input
+                        id="userName"
+                        width="37vh"
+                    />
+                </VBox>
+                <VBox>
+                    <Label
+                        required="true"
+                        text="First Name"
+                    />
+                    <Input
+                        id="firstName"
+                        width="37vh"
+                    />
+                </VBox>
+            </FlexBox>
+
+            <FlexBox
+                justifyContent="SpaceBetween"
+                class="sapUiTinyMarginTop"
+            >
+                <VBox>
+                    <Label text="Middle Name" />
+                    <Input
+                        id="middleName"
+                        enabled="false"
+                        width="37vh"
+                    />
+                </VBox>
+                <VBox>
+                    <Label text="Last Name" />
+                    <Input
+                        width="37vh"
+                        id="lastName"
+                    />
+                </VBox>
+            </FlexBox>
+            <FlexBox
+                justifyContent="SpaceBetween"
+                class="sapUiTinyMarginTop"
+            >
+                <VBox>
+                    <Label
+                        required="true"
+                        text="Email Id"
+                    />
+                    <Input
+                        width="37vh"
+                        id="email"
+                    />
+                </VBox>
+                <VBox>
+                    <Label
+                        required="true"
+                        text="Mobile No."
+                    />
+                    <Input
+                        id="mobileNo"
+                        type="Number"
+                        width="37vh"
+                    />
+                </VBox>
+            </FlexBox>
+
+            <FlexBox
+                justifyContent="SpaceBetween"
+                class="sapUiTinyMarginTop"
+            >
+                <VBox>
+                    <Label
+                        required="true"
+                        text="Admin Type"
+                    />
+                    <ComboBox
+                        width="37vh"
+                        id="adminType"
+                        selectionChange="onAdminChange"
+                        items="{/userTypes}"
+                    >
+                        <items>
+                            <core:Item
+                                key="{name}"
+                                text="{name}"
+                            />
+                        </items>
+                    </ComboBox>
+                </VBox>
+                <VBox>
+                    <Label text="Account" />
+                    <ComboBox
+                        width="37vh"
+                        id="account"
+                        editable="false"
+                        items="{jsonMod>/result}"
+                    >
+                        <items>
+                            <core:Item
+                                key="{jsonMod>name}"
+                                text="{jsonMod>name}"
+                            />
+                        </items>
+                    </ComboBox>
+                </VBox>
+            </FlexBox>
+
+            <!-- <upload:UploadSet
+                id="UploadSet"
+                instantUpload="true"
+                showIcons="true"
+                uploadEnabled="true"
+                terminationEnabled="true"
+                fileTypes="txt,doc,png"
+                maxFileNameLength="30"
+                maxFileSize="200"
+                mediaTypes="text/plain,application/msword,image/png"
+                uploadUrl="adddddddddddd"
+                items="{path: '/items', templateShareable: false}"
+                mode="MultiSelect"
+                selectionChanged="onSelectionChange"
+                class="sapUiTinyMarginTop"
+            >
+                <upload:toolbar>
+                    <OverflowToolbar>
+                        <Label
+                            text="Signature"
+                            required="true"
+                        />
+                        <ToolbarSpacer />
+                        <Button
+                            id="uploadSelectedButton"
+                            text="Upload selected"
+                            press="onUploadSelectedButton"
+                        />
+                       
+                    </OverflowToolbar>
+                </upload:toolbar>
+                <upload:items>
+                    <upload:UploadSetItem
+                        mediaType="application/msword"
+                        url="addddddddddd"
+                        markers="{path: 'markers', templateShareable: false}"
+                        statuses="{path: 'statuses', templateShareable: false}"
+                        uploadState="{uploadState}"
+                    >
+                        <upload:markers>
+                            <ObjectMarker
+                                type="{type}"
+                                visibility="{visibility}"
+                            />
+                        </upload:markers>
+                        <upload:statuses>
+                            <ObjectStatus
+                                title="{title}"
+                                text="{text}"
+                                state="{state}"
+                                icon="{icon}"
+                                active="{active}"
+                            />
+                        </upload:statuses>
+                    </upload:UploadSetItem>
+                </upload:items>
+            </upload:UploadSet> -->
+        </VBox>
+        <buttons>
+            <Button
+                text="Create"
+                press="onSubmitAdd"
+                icon="sap-icon://accept"
+                type="Accept"
+            />
+            <Button
+                text="Cancel"
+                press="onCloseAdd"
+                icon="sap-icon://cancel"
+                type="Reject"
+            />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>
